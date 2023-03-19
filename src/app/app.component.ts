@@ -6,24 +6,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  biba = 'Biba';
+  sumNumberOne = 232;
+  sumNumberTwo: any;
   
-  ngOnInit() {
-    let a = 2;
-    let b = 'Name';
-    
-    console.log(this.biba);
-    this.checkNumbers(a, b);
+  ngOnInit(): void {
+    this.sumNumberTwo = '500';
+    let stringCheck = this.sumNumberTwo + ': NUmber';
+    console.log(stringCheck);
+
+    if (typeof this.sumNumberTwo === 'number') {
+      this.checkNumbers(this.sumNumberOne, this.sumNumberTwo);
+    } else {
+      console.log('NE CHISLO');
+      let newNum = this.makeNumberPlusOne(this.sumNumberTwo);
+      console.log('NOVOE CHISLO', newNum);
+      this.checkNumbers(this.sumNumberOne, newNum);
+    }
   }
 
-  checkNumbers(par: number, parr: any) {
-    this.biba = 'JOPA';
-    if (par === parr) {
-      console.log('ДА');
-      console.log(this.biba);
+  checkNumbers(num1: number, num2: number) {
+    if (num1 == num2) {
+      console.log('РАВНЫ');
     } else {
       console.log('НЕТ');
-      console.log(this.biba);
     }
+  }
+
+  makeNumberPlusOne(par: any): number {
+    par = +par;
+    par = par + 1;
+    console.log('DELAY CHISLO', par);
+    return par;
   }
 }
