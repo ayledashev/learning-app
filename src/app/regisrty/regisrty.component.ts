@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { combineLatest } from 'rxjs';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-regisrty',
@@ -16,6 +18,10 @@ export class RegisrtyComponent implements OnInit {
 
   hasMatchingError = false;
   isLogin = true;
+
+  constructor(public userService: UserService, public router: Router) {
+
+  }
 
   ngOnInit(): void {
       this.loginForm = new FormGroup({
@@ -45,5 +51,17 @@ export class RegisrtyComponent implements OnInit {
 
   changeForm() {
     this.isLogin = !this.isLogin;
+  }
+
+  submitData() {
+    if (this.isLogin) {
+      if (this.userService.checkUser(this.loginForm.getRawValue())) {
+        console.log('PROSHLI!!!!!!!!!');
+        console.log('ACTIVE USER IS: name: ' + this.userService.activeUser.name + ', email: ' + this.userService.activeUser.email)
+        // this.router.navigate(['/market']);
+      }
+    } else {
+      this.userService.registration(this.registryForm.getRawValue());
+    }
   }
 }

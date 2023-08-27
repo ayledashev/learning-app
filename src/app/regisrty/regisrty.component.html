@@ -55,5 +55,11 @@
                 </form>
             </div>
         </div>
+
+        <div class="submit-buttons">
+            <button pButton pRipple [label]="isLogin ? 'Enter' : 'Registry'" 
+                class="p-button-success" (click)="submitData()"></button>
+        </div>
+        
     </div>
 </div>

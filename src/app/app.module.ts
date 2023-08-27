@@ -8,11 +8,15 @@ import { RegisrtyComponent } from './regisrty/regisrty.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './services/user.service';
+import { MarketComponent } from './market/market.component';
+import { MarketService } from './services/market.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisrtyComponent
+    RegisrtyComponent,
+    MarketComponent
   ],
   imports: [
     ButtonModule,
@@ -22,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService, MarketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
