@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { MarketComponent } from './market/market.component';
 import { MarketService } from './services/market.service';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MarketService } from './services/market.service';
     FormsModule,
     InputTextModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InputSwitchModule,
+    AccordionModule
   ],
   providers: [UserService, MarketService],
   bootstrap: [AppComponent]
