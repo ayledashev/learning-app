@@ -13,12 +13,14 @@ import { MarketComponent } from './market/market.component';
 import { MarketService } from './services/market.service';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { AccordionModule } from 'primeng/accordion';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisrtyComponent,
-    MarketComponent
+    MarketComponent,
+    MenuComponent
   ],
   imports: [
     ButtonModule,

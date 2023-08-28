@@ -1,0 +1,9 @@
+<div class="menu-wrapper">
+  <div *ngFor="let i of menuItems" class="menu-item">
+    <button pButton
+      [routerLink]="i.route"
+      [label]="i.name"
+      [icon]="i.icon"
+    ></button>
+  </div>
+</div>

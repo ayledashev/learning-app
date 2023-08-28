@@ -58,7 +58,7 @@ export class RegisrtyComponent implements OnInit {
       if (this.userService.checkUser(this.loginForm.getRawValue())) {
         console.log('PROSHLI!!!!!!!!!');
         console.log('ACTIVE USER IS: name: ' + this.userService.activeUser.name + ', email: ' + this.userService.activeUser.email)
-        // this.router.navigate(['/market']);
+        this.router.navigate(['/market']);
       }
     } else {
       this.userService.registration(this.registryForm.getRawValue());
