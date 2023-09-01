@@ -1,6 +1,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+@import 'primeflex/primeflex.scss';
 
 body {
     width: 100%;
@@ -24,5 +25,18 @@ body {
         border: 3px solid black;
         border-top: 0px;
         border-bottom: 0px;
+    }
+}
+
+
+.field {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
     }
 }

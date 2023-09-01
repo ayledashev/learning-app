@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RegisrtyComponent } from './regisrty/regisrty.component';
-
+import { AppRoutingModule} from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// PRIME NG IMPORTS
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { AccordionModule } from 'primeng/accordion';
+import { DataViewModule } from 'primeng/dataview';
+// COMPONENT IMPORTS
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
+
+import { AppComponent } from './app.component';
+import { RegisrtyComponent } from './regisrty/regisrty.component';
 import { MarketComponent } from './market/market.component';
 import { MarketService } from './services/market.service';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { AccordionModule } from 'primeng/accordion';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
@@ -24,13 +29,16 @@ import { MenuComponent } from './menu/menu.component';
   ],
   imports: [
     ButtonModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     InputTextModule,
     BrowserModule,
     AppRoutingModule,
     InputSwitchModule,
-    AccordionModule
+    AccordionModule,
+    DropdownModule,
+    DataViewModule
   ],
   providers: [UserService, MarketService],
   bootstrap: [AppComponent]
