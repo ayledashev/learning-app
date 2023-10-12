@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
+import { forkJoin } from 'rxjs';
 import { MarketItem, MarketService } from '../services/market.service';
 import { MarketItemType } from './MarketItemType';
 
@@ -13,6 +14,7 @@ export class MarketComponent implements OnInit{
   searchControl: FormControl;
   typeControl: FormControl;
 
+  filteredMarketItems: MarketItem[] = [];
   marketItems: MarketItem[] = [];
 
   marketTypes: SelectItem[] = [];
@@ -25,8 +27,31 @@ export class MarketComponent implements OnInit{
       this.searchControl = new FormControl("");
       this.typeControl = new FormControl(null);
 
-      this.marketItems = this.marketService.setItems();
-      console.log(this.marketItems);
+      this.marketItems = this.filteredMarketItems = this.marketService.setItems();
       this.marketTypes = this.marketService.getItemTypes();
+
+      this.searchControl.valueChanges.subscribe((val: string) => {
+        if (val) {
+          this.filteredMarketItems = this.marketItems.filter((item: MarketItem) => {
+            let itemString = val.toUpperCase();
+            if (item.name?.toUpperCase()?.includes(itemString) || item.description?.toUpperCase()?.includes(itemString)) {
+              return true;
+            }
+            return false;
+          });
+        }
+      });
+
+      this.typeControl.valueChanges.subscribe((value: number) => {
+        if (value) {
+          this.filteredMarketItems = this.marketItems.filter((item: MarketItem) => item.type === value);
+        }
+      });
+  }
+
+  clearFilters() {
+    this.filteredMarketItems = this.marketItems;
+    this.typeControl.setValue(null);
+    this.searchControl.setValue('');
   }
 }

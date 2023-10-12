@@ -18,29 +18,29 @@ export class MarketService {
                 onSale: true
             },
             {
-                name: '',
-                type: MarketItemType.BREAD,
-                price: 100,
+                name: 'Молоко',
+                type: MarketItemType.DAIRY,
+                price: 30,
                 imageUrl: '',
-                description: '',
+                description: 'Класс. Напиток бомба',
                 hasDiscount: false,
                 onSale: true
             },
             {
-                name: '',
-                type: MarketItemType.BREAD,
-                price: 100,
+                name: 'Масло',
+                type: MarketItemType.DAIRY,
+                price: 1,
                 imageUrl: '',
-                description: '',
+                description: 'Жирнющее масло',
                 hasDiscount: false,
-                onSale: true
+                onSale: false
             },
             {
-                name: '',
-                type: MarketItemType.BREAD,
-                price: 100,
+                name: 'Баскин Робинс',
+                type: MarketItemType.ICE_CREAM,
+                price: 500000,
                 imageUrl: '',
-                description: '',
+                description: 'Райское наслаждение',
                 hasDiscount: false,
                 onSale: true
             },
@@ -58,10 +58,12 @@ export class MarketService {
 
     getItemTypes(): SelectItem[] {
         let types: SelectItem[] = [];
+        // console.log(Object.keys(MarketItemType));
         Object.keys(MarketItemType)
         .filter((key: string) => !isNaN(+key))
         .map((key: string) => +key)
         .forEach((key: number) => {
+            // console.log(key);
             switch (key) {
                 case MarketItemType.DAIRY:
                     types.push({ label: 'Молочные продукты', value: key});

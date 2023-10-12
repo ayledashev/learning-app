@@ -18,11 +18,12 @@
             [formControl]="typeControl"
           ></p-dropdown>
         </div>
+        <button pButton class="p-button-success" label="Сброс фильтров" (click)="clearFilters()"></button>
       </div>
 
       <p-dataView
         #dv
-        [value]="marketItems"
+        [value]="filteredMarketItems"
         [rows]="4"
         [layout]="'grid'"
       >
