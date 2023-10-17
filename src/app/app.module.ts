@@ -19,13 +19,15 @@ import { MarketComponent } from './market/market.component';
 import { MarketService } from './services/market.service';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenuComponent } from './menu/menu.component';
+import { TestComponentComponent } from './test-component/test-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisrtyComponent,
     MarketComponent,
-    MenuComponent
+    MenuComponent,
+    TestComponentComponent
   ],
   imports: [
     ButtonModule,

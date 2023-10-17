@@ -54,5 +54,9 @@
         </ng-template>
       </p-dataView>
     </div>
+    <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component>
+    <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component>
   </div>
 </div>
+
+

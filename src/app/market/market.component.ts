@@ -19,6 +19,8 @@ export class MarketComponent implements OnInit{
 
   marketTypes: SelectItem[] = [];
 
+  childValue = '123 Asdada';
+
   constructor(public marketService: MarketService) {
 
   }
@@ -53,5 +55,10 @@ export class MarketComponent implements OnInit{
     this.filteredMarketItems = this.marketItems;
     this.typeControl.setValue(null);
     this.searchControl.setValue('');
+  }
+
+  fillData(value: string) {
+    console.log('ЗНАЧЕНИЕ', value);
+    this.searchControl.patchValue(value);
   }
 }

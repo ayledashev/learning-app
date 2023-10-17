@@ -21,7 +21,7 @@ export class MarketService {
                 name: 'Молоко',
                 type: MarketItemType.DAIRY,
                 price: 30,
-                imageUrl: '',
+                imageUrl: 'moloko.jpg',
                 description: 'Класс. Напиток бомба',
                 hasDiscount: false,
                 onSale: true
@@ -30,7 +30,7 @@ export class MarketService {
                 name: 'Масло',
                 type: MarketItemType.DAIRY,
                 price: 1,
-                imageUrl: '',
+                imageUrl: 'butter.jpg',
                 description: 'Жирнющее масло',
                 hasDiscount: false,
                 onSale: false
@@ -39,17 +39,17 @@ export class MarketService {
                 name: 'Баскин Робинс',
                 type: MarketItemType.ICE_CREAM,
                 price: 500000,
-                imageUrl: '',
+                imageUrl: 'br.jpg',
                 description: 'Райское наслаждение',
                 hasDiscount: false,
                 onSale: true
             },
             {
-                name: '',
-                type: MarketItemType.BREAD,
-                price: 100,
-                imageUrl: '',
-                description: '',
+                name: 'Juice',
+                type: MarketItemType.JUICE,
+                price: 0,
+                imageUrl: 'juice.jpg',
+                description: 'Репер просто класс. Лайк. Подписка',
                 hasDiscount: false,
                 onSale: true
             },
