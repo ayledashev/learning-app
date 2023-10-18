@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'primeng/dynamicdialog';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-menu',
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[];
 
+  constructor(public dialogService: DialogService) {}
   ngOnInit(): void {
     this.menuItems =[
       {
@@ -25,11 +28,15 @@ export class MenuComponent implements OnInit {
         icon: "pi pi-users",
         route: ""
       }
+
     ]
   }
-
-
+  openDialog() {
+    const ref =this.dialogService.open(CartComponent, { header: 'Корзина'});
+    
+  }
 }
+
 
 export class MenuItem {
   name: string;

@@ -5,6 +5,7 @@ import { SelectItem } from "primeng/api";
 @Injectable()
 export class MarketService {
     MarketItemTypes = MarketItemType;
+    cartItems: MarketItem[] = [];
 
     setItems(): MarketItem[] {
         return [
@@ -15,7 +16,8 @@ export class MarketService {
                 imageUrl: 'Bread.webp',
                 description: '',
                 hasDiscount: false,
-                onSale: true
+                onSale: true,
+                amount: 200
             },
             {
                 name: 'Молоко',
@@ -24,7 +26,8 @@ export class MarketService {
                 imageUrl: 'moloko.jpg',
                 description: 'Класс. Напиток бомба',
                 hasDiscount: false,
-                onSale: true
+                onSale: true,
+                amount: 300
             },
             {
                 name: 'Масло',
@@ -33,7 +36,8 @@ export class MarketService {
                 imageUrl: 'butter.jpg',
                 description: 'Жирнющее масло',
                 hasDiscount: false,
-                onSale: false
+                onSale: false,
+                amount: 100
             },
             {
                 name: 'Баскин Робинс',
@@ -42,7 +46,8 @@ export class MarketService {
                 imageUrl: 'br.jpg',
                 description: 'Райское наслаждение',
                 hasDiscount: false,
-                onSale: true
+                onSale: true,
+                amount: 500
             },
             {
                 name: 'Juice',
@@ -51,7 +56,8 @@ export class MarketService {
                 imageUrl: 'juice.jpg',
                 description: 'Репер просто класс. Лайк. Подписка',
                 hasDiscount: false,
-                onSale: true
+                onSale: true,
+                amount: 'rip'
             },
         ]
     }
@@ -95,5 +101,6 @@ export class MarketItem {
     imageUrl: string;
     description: string
     hasDiscount: boolean;
-    onSale: boolean
+    onSale: boolean;
+    amount: any;
 }

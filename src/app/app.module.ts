@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { AccordionModule } from 'primeng/accordion';
 import { DataViewModule } from 'primeng/dataview';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 // COMPONENT IMPORTS
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
@@ -20,6 +21,7 @@ import { MarketService } from './services/market.service';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenuComponent } from './menu/menu.component';
 import { TestComponentComponent } from './test-component/test-component.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { TestComponentComponent } from './test-component/test-component.componen
     RegisrtyComponent,
     MarketComponent,
     MenuComponent,
-    TestComponentComponent
+    TestComponentComponent,
+    CartComponent
   ],
   imports: [
     ButtonModule,
@@ -40,9 +43,10 @@ import { TestComponentComponent } from './test-component/test-component.componen
     InputSwitchModule,
     AccordionModule,
     DropdownModule,
-    DataViewModule
+    DataViewModule,
+    DynamicDialogModule 
   ],
-  providers: [UserService, MarketService],
+  providers: [UserService, MarketService, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

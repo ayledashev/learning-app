@@ -61,4 +61,11 @@ export class MarketComponent implements OnInit{
     console.log('ЗНАЧЕНИЕ', value);
     this.searchControl.patchValue(value);
   }
+  addToCart(product: MarketItem) {
+    if (!product.onSale || product.amount === 0) {
+      return;
+    }
+    this.marketService.cartItems.push(product);
+    console.log(this.marketService.cartItems);
+  }
 }
