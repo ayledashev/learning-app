@@ -22,6 +22,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenuComponent } from './menu/menu.component';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { CartComponent } from './cart/cart.component';
+import { KalComponent } from './kal/kal.component';
+import { TestModuleComponentComponent } from './test-module/test-module-component/test-module-component.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CartComponent } from './cart/cart.component';
     MarketComponent,
     MenuComponent,
     TestComponentComponent,
-    CartComponent
+    CartComponent,
+    KalComponent,
+    TestModuleComponentComponent
   ],
   imports: [
     ButtonModule,

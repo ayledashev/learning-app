@@ -1,0 +1,4 @@
+<h1>Добро пожаловать {{objectValue.name + ' ' + inputValue}}!</h1>
+<!-- <input type="text" [value]="getInputValue()"/> -->
+<input type="text" [(ngModel)]="inputValue" (ngModelChange)="logEvent()"/>
+<button pButton class="p-button-success" label="Вывести значение" (click)="log()" (mouseover)="logEvent()"></button>

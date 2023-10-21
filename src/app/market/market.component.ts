@@ -16,7 +16,7 @@ export class MarketComponent implements OnInit{
 
   filteredMarketItems: MarketItem[] = [];
   marketItems: MarketItem[] = [];
-
+ 
   marketTypes: SelectItem[] = [];
 
   childValue = '123 Asdada';
@@ -27,7 +27,7 @@ export class MarketComponent implements OnInit{
 
   ngOnInit(): void {
       this.searchControl = new FormControl("");
-      this.typeControl = new FormControl(null);
+      this.typeControl = new FormControl("");
 
       this.marketItems = this.filteredMarketItems = this.marketService.setItems();
       this.marketTypes = this.marketService.getItemTypes();

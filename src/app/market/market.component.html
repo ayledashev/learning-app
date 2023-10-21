@@ -16,6 +16,7 @@
           <p-dropdown
             [options]="marketTypes"
             [formControl]="typeControl"
+            placeholder="Выберите тип"
           ></p-dropdown>
         </div>
         <button pButton class="p-button-success" label="Сброс фильтров" (click)="clearFilters()"></button>
@@ -25,7 +26,7 @@
         #dv
         [value]="filteredMarketItems"
         [rows]="4"
-        [layout]="'grid'"
+        layout="'grid'"
       >
         <ng-template let-product pTemplate="gridItem">
           <div class="col-12 md:col-4">
@@ -61,5 +62,5 @@
     <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component>
   </div>
 </div>
-
+<app-test-module-component></app-test-module-component>
 
