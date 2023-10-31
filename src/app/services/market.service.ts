@@ -58,8 +58,8 @@ export class MarketService {
                 hasDiscount: false,
                 onSale: true,
                 amount: 'rip'
-            },
-        ]
+            }
+        ];
     }
 
     getItemTypes(): SelectItem[] {

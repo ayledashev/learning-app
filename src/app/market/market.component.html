@@ -58,8 +58,9 @@
         </ng-template>
       </p-dataView>
     </div>
-    <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component>
-    <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component>
+    <!-- <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component>
+    <app-test-component [stringValue]="childValue" [controlValue]="searchControl.value" (sendData)="fillData($event)"></app-test-component> -->
+      <app-test-drive [childValuees]="childValue" [types]="marketTypes" (sendData)="fillData($event)"></app-test-drive>
   </div>
 </div>
 <!-- <app-test-module-component></app-test-module-component> -->

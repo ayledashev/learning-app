@@ -1,0 +1,23 @@
+<div >
+    <span [ngClass]="{'pop-smoke': flag}">
+       Полученное значение: {{childValuees}};
+    </span>
+    <span *ngIf="isShown; else block">
+        Порошин не лох
+    </span>
+    <button (click)="emitMethod()">
+        Кликай еблан
+    </button>
+</div>
+    <ng-template #block>
+    asd ard
+    </ng-template>
+    <div>
+        <ul>
+            <li *ngFor="let item of nameArray">{{item.name}}
+                <span *ngIf="item.addText">
+                    Hotbox
+                </span>
+            </li>
+        </ul>
+    </div>

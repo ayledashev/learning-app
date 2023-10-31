@@ -19,7 +19,7 @@ export class MarketComponent implements OnInit{
  
   marketTypes: SelectItem[] = [];
 
-  childValue = '123 Asdada';
+  childValue = '';
 
   constructor(public marketService: MarketService) {
 
