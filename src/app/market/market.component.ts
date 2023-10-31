@@ -30,7 +30,7 @@ export class MarketComponent implements OnInit{
       this.typeControl = new FormControl("");
 
       this.marketItems = this.filteredMarketItems = this.marketService.setItems();
-      this.marketTypes = this.marketService.getItemTypes();
+      console.warn(this.marketItems,this.filteredMarketItems);this.marketTypes = this.marketService.getItemTypes();
 
       this.searchControl.valueChanges.subscribe((val: string) => {
         if (val) {
