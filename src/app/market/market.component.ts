@@ -10,7 +10,7 @@ import { MarketItemType } from './MarketItemType';
   templateUrl: './market.component.html',
   styleUrls: ['./market.component.scss']
 })
-export class MarketComponent implements OnInit{
+export class MarketComponent implements OnInit {
   searchControl: FormControl;
   typeControl: FormControl;
 

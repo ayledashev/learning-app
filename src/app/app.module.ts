@@ -25,6 +25,7 @@ import { CartComponent } from './cart/cart.component';
 import { KalComponent } from './kal/kal.component';
 import { TestModuleComponentComponent } from './test-module/test-module-component/test-module-component.component';
 import { TestDriveComponent } from './test-drive/test-drive.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TestDriveComponent } from './test-drive/test-drive.component';
     CartComponent,
     KalComponent,
     TestModuleComponentComponent,
-    TestDriveComponent
+    TestDriveComponent,
+    ContactsComponent
   ],
   imports: [
     ButtonModule,

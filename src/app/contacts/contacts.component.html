@@ -1,0 +1,18 @@
+<div class="main-content">
+    <div class="main-content-body">
+      <app-menu></app-menu>
+      <div class="field">
+        <label>Поиск</label>
+        <input
+          pInputText
+          [formControl]="control"
+          placeholder="Введите текст"
+        />
+        <span *ngIf="!control.valid">
+        нет значения
+      </span>
+      </div>
+      <button pButton class="p-button-success" label="kiriko" (click)="log()"></button>
+    </div>
+
+</div>  

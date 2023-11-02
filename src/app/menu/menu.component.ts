@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
       {
         name: "Contacts",
         icon: "pi pi-users",
-        route: ""
+        route: "/contacts"
       }
 
     ]
