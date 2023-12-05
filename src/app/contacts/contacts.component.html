@@ -1,18 +1,30 @@
 <div class="main-content">
-    <div class="main-content-body">
-      <app-menu></app-menu>
+  <div class="main-content-body">
+    <app-menu></app-menu>
+    <form [formGroup]="formGroup">
       <div class="field">
         <label>Поиск</label>
-        <input
-          pInputText
-          [formControl]="control"
-          placeholder="Введите текст"
-        />
-        <span *ngIf="!control.valid">
-        нет значения
-      </span>
+        <input pInputText [formControl]="control" placeholder="Введите текст" />
+        <span *ngIf="!control.valid"> нет значения </span>
       </div>
-      <button pButton class="p-button-success" label="kiriko" (click)="log()"></button>
-    </div>
-
-</div>  
+      <div class="field">
+        <label>@@aaa</label>
+        <input pInputText formControlName="email" placeholder="pshin gay" />
+        
+        <span *ngIf="!control.valid"> нет значения </span>
+      </div>
+      <div class="field">
+        <label>password</label>
+        <input pInputText formControlName="password" placeholder="Введите текст" />
+        
+        <span *ngIf="!control.valid"> нет значения </span>
+      </div>
+    </form>
+    <button
+      pButton
+      class="p-button-success"
+      label="kiriko"
+      (click)="log()"
+    ></button>
+  </div>
+</div>
