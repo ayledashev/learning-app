@@ -1,0 +1,38 @@
+.cart-items {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cart-item {
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    width: 400px;
+    // justify-content: space-between;
+    // align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    // display: grid;
+
+    span {
+        text-align: center;
+
+        &:nth-child(1) {
+            text-align: left;
+
+        }
+    }
+}
+
+table {
+    width: 400px;
+    border-collapse: collapse;
+
+    td,
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+}

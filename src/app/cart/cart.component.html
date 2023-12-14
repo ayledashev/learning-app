@@ -1,1 +1,39 @@
-<p>cart works!</p>
+<div *ngIf="storageCart && storageCart.length; else unset">
+  <div class="cart-items">
+    <table>
+      <tr>
+        <th> Название </th>
+        <th> Кол-во </th>
+        <th> Цена </th>
+      </tr>
+      <tr class="cart-item" *ngFor="let i of storageCart">
+        <td>
+          {{ i.name }}
+        </td>
+        <td>
+          {{ i.cartAmount }}
+        </td>
+        <td>
+          {{ getSumItems(i) }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          {{allSum()}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button
+    pButton
+    class="p-button-success"
+    label="Купить"
+    (click)="buyItems()"
+  ></button>
+</div>
+<ng-template #unset>
+  <p>
+    Нет товаров.
+    <a (click)="returnToMarket()"> Хотите купить еще? </a>
+  </p>
+</ng-template>

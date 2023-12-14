@@ -8,7 +8,7 @@ import { MarketItemType } from './MarketItemType';
 @Component({
   selector: 'app-market',
   templateUrl: './market.component.html',
-  styleUrls: ['./market.component.scss']
+  styleUrls: ['./market.component.scss'],
 })
 export class MarketComponent implements OnInit {
   searchControl: FormControl;
@@ -16,39 +16,45 @@ export class MarketComponent implements OnInit {
 
   filteredMarketItems: MarketItem[] = [];
   marketItems: MarketItem[] = [];
- 
+
   marketTypes: SelectItem[] = [];
 
   childValue = '';
 
-  constructor(public marketService: MarketService) {
-
-  }
+  constructor(public marketService: MarketService) {}
 
   ngOnInit(): void {
-      this.searchControl = new FormControl("");
-      this.typeControl = new FormControl("");
+    this.searchControl = new FormControl('');
+    this.typeControl = new FormControl('');
 
-      this.marketItems = this.filteredMarketItems = this.marketService.setItems();
-      console.warn(this.marketItems,this.filteredMarketItems);this.marketTypes = this.marketService.getItemTypes();
+    this.marketItems = this.filteredMarketItems = this.marketService.setItems();
+    console.warn(this.marketItems, this.filteredMarketItems);
+    this.marketTypes = this.marketService.getItemTypes();
 
-      this.searchControl.valueChanges.subscribe((val: string) => {
-        if (val) {
-          this.filteredMarketItems = this.marketItems.filter((item: MarketItem) => {
+    this.searchControl.valueChanges.subscribe((val: string) => {
+      if (val) {
+        this.filteredMarketItems = this.marketItems.filter(
+          (item: MarketItem) => {
             let itemString = val.toUpperCase();
-            if (item.name?.toUpperCase()?.includes(itemString) || item.description?.toUpperCase()?.includes(itemString)) {
+            if (
+              item.name?.toUpperCase()?.includes(itemString) ||
+              item.description?.toUpperCase()?.includes(itemString)
+            ) {
               return true;
             }
             return false;
-          });
-        }
-      });
+          }
+        );
+      }
+    });
 
-      this.typeControl.valueChanges.subscribe((value: number) => {
-        if (value) {
-          this.filteredMarketItems = this.marketItems.filter((item: MarketItem) => item.type === value);
-        }
-      });
+    this.typeControl.valueChanges.subscribe((value: number) => {
+      if (value) {
+        this.filteredMarketItems = this.marketItems.filter(
+          (item: MarketItem) => item.type === value
+        );
+      }
+    });
   }
 
   clearFilters() {
@@ -65,7 +71,7 @@ export class MarketComponent implements OnInit {
     if (!product.onSale || product.amount === 0) {
       return;
     }
-    this.marketService.cartItems.push(product);
+    this.marketService.addCartItem(product);
     console.log(this.marketService.cartItems);
   }
 }
