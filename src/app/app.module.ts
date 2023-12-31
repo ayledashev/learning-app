@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { AccordionModule } from 'primeng/accordion';
 import { DataViewModule } from 'primeng/dataview';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 // COMPONENT IMPORTS
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +27,8 @@ import { KalComponent } from './kal/kal.component';
 import { TestModuleComponentComponent } from './test-module/test-module-component/test-module-component.component';
 import { TestDriveComponent } from './test-drive/test-drive.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { SalesComponent } from './sales/sales.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     KalComponent,
     TestModuleComponentComponent,
     TestDriveComponent,
-    ContactsComponent
+    ContactsComponent,
+    SalesComponent
   ],
   imports: [
     ButtonModule,
@@ -52,7 +56,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     AccordionModule,
     DropdownModule,
     DataViewModule,
-    DynamicDialogModule 
+    DynamicDialogModule,
+    InputNumberModule 
   ],
   providers: [UserService, MarketService, DialogService],
   bootstrap: [AppComponent]

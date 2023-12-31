@@ -1,39 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { MarketItem, MarketService } from '../services/market.service';
 import { FormControl } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
-import { forkJoin } from 'rxjs';
-import { MarketItem, MarketService } from '../services/market.service';
-import { MarketItemType, SalesMarketItemType } from './MarketItemType';
 
 @Component({
-  selector: 'app-market',
-  templateUrl: './market.component.html',
-  styleUrls: ['./market.component.scss'],
+  selector: 'app-sales',
+  templateUrl: './sales.component.html',
+  styleUrls: ['./sales.component.scss'],
 })
-export class MarketComponent implements OnInit {
+export class SalesComponent implements OnInit {
   searchControl: FormControl;
   typeControl: FormControl;
-
-  filteredMarketItems: MarketItem[] = [];
-  marketItems: MarketItem[] = [];
-
+  salesList: MarketItem[] = [];
+  filteredSalesMarketItems: MarketItem[] = [];
   marketTypes: SelectItem[] = [];
 
-  childValue = '';
-
-  constructor(public marketService: MarketService) {}
 
   ngOnInit(): void {
     this.searchControl = new FormControl('');
     this.typeControl = new FormControl('');
-
-    this.marketItems = this.filteredMarketItems = this.marketService.setItems(false);
-    this.marketService.getItemTypes();
+    this.salesList = this.marketService.setItems();
+    this.filteredSalesMarketItems = this.marketService.setItems();
+    this.marketService.getItemTypes(true);
     this.marketTypes = this.marketService.marketTypes;
-
     this.searchControl.valueChanges.subscribe((val: string) => {
       if (val) {
-        this.filteredMarketItems = this.marketItems.filter(
+        this.filteredSalesMarketItems = this.salesList.filter(
           (item: MarketItem) => {
             let itemString = val.toUpperCase();
             if (
@@ -47,31 +39,22 @@ export class MarketComponent implements OnInit {
         );
       }
     });
-
     this.typeControl.valueChanges.subscribe((value: string) => {
       if (value) {
-        this.filteredMarketItems = this.marketItems.filter(
+        this.filteredSalesMarketItems = this.salesList.filter(
           (item: MarketItem) => item.type === value
         );
       }
     });
   }
 
+
+  constructor(public marketService: MarketService) {}
+
   clearFilters() {
-    this.filteredMarketItems = this.marketItems;
+    this.filteredSalesMarketItems = this.salesList;
     this.typeControl.setValue(null);
     this.searchControl.setValue('');
   }
 
-  fillData(value: string) {
-    console.log('ЗНАЧЕНИЕ', value);
-    this.searchControl.patchValue(value);
-  }
-  addToCart(product: MarketItem) {
-    if (!product.onSale || product.amount === 0) {
-      return;
-    }
-    this.marketService.addCartItem(product);
-    console.log(this.marketService.cartItems);
-  }
 }

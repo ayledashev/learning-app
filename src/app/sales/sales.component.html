@@ -1,0 +1,67 @@
+<div class="main-content">
+  <div class="main-content-body">
+    <app-menu></app-menu>
+
+    <div class="content">
+      
+      <div class="data-filters">
+        <div class="field">
+          <label>Поиск</label>
+          <input
+            pInputText
+            [formControl]="searchControl"
+            placeholder="Введите текст"
+          />
+        </div>
+        <div class="field">
+          <label>Тип</label>
+          <p-dropdown
+            [options]="marketTypes"
+            [formControl]="typeControl"
+            placeholder="Выберите тип"
+          ></p-dropdown>
+        </div>
+        <button
+          pButton
+          class="p-button-success"
+          label="Сброс фильтров"
+          (click)="clearFilters()"
+        ></button>
+      </div>
+      <p-dataView
+        #dv
+        [value]="filteredSalesMarketItems"
+        [rows]="4"
+        [layout]="'grid'"
+      >
+        <ng-template let-product pTemplate="gridItem">
+          <div class="col-12 md:col-4">
+            <div class="product-grid-item card">
+              <div class="product-grid-item-top">
+                <div>
+                  <i class="pi pi-tag product-category-icon"></i>
+                  <span class="product-category">{{ marketService.getItemTypeLabel(product.type) }}</span>
+                </div>
+                <span *ngIf="product.hasDiscount" class="product-badge status-instock">СКИДКА!</span>
+              </div>
+              <div class="product-grid-item-content">
+                <img
+                  [src]="'assets/market-photos/' + product.imageUrl"
+                  [alt]="product.name"
+                />
+                <div class="product-name">{{ product.name }}</div>
+                <div class="product-description">{{ product.description }}</div>
+              </div>
+              <div class="product-grid-item-bottom">
+                <span class="product-price">${{ product.price }}</span>
+                <span>
+                  {{"кол-во товаров: " + product.amount}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+    </div>
+  </div>
+</div>

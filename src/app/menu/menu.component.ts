@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       {
         name: "Sales",
         icon: "pi pi-percentage",
-        route: ""
+        route: "/sales"
       },
       {
         name: "Contacts",
